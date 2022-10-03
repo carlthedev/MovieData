@@ -34,15 +34,21 @@ let movieData = {
   },
 };
 
-document.getElementById("name").innerHTML = Object.keys(movieData)[0];
+const isObject = function (movie) {
+  if (movie === null) {
+    return false;
+  }
+  return (typeof movie === 'object')
+}
 
-document.getElementById("cast").innerHTML = `Cast: ${movieData["The Darjeeling Limited"].cast}`;
-
-document.getElementById("runTime").innerHTML = `Runtime: ${movieData["The Darjeeling Limited"].runtime} minutes`;
-
-document.getElementById("rating").innerHTML = `Rating: ${movieData["The Darjeeling Limited"].rating}`;
-
-
-document.getElementById("year").innerHTML = `Year: ${movieData["The Darjeeling Limited"].year}`;
-
-document.getElementById("plot").innerHTML = `Plot: ${movieData["The Darjeeling Limited"].plot}`;
+for (let movie in movieData) {
+  if (isObject(movieData[movie])) {
+    console.log(movie);
+    for (let movie2 in movieData[movie]) {
+      console.log(movie2, movieData[movie][movie2])
+    }
+  } else {
+    console.log(movie, movieData[movie]);
+  }
+  
+}
