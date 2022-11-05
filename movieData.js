@@ -34,21 +34,20 @@ let movieData = {
   },
 };
 
-const isObject = function (movie) {
-  if (movie === null) {
-    return false;
-  }
-  return (typeof movie === 'object')
-}
-
+// first loop over movie data (outer loop)
 for (let movie in movieData) {
-  if (isObject(movieData[movie])) {
-    console.log(movie);
-    for (let movie2 in movieData[movie]) {
-      console.log(movie2, movieData[movie][movie2])
-    }
-  } else {
-    console.log(movie, movieData[movie]);
+  const mImage = document.createElement("img");
+  mImage.setAttribute('src', `${movie}.png`);
+  document.getElementById("outer").appendChild(mImage);
+  const mName = document.createElement("h1");
+  const node = document.createTextNode(`${movie}`);
+  mName.appendChild(node);
+  document.getElementById("outer").appendChild(mName);
+  // second loop over movie data (inner loop)
+  for (let movieD in movieData[movie]) {
+    const para = document.createElement("p");
+    const node = document.createTextNode(`${movieD}: ${movieD, movieData[movie][movieD]}`);
+    para.appendChild(node);
+    document.getElementById("outer").appendChild(para);
   }
-  
 }
