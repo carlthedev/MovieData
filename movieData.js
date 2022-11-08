@@ -34,6 +34,10 @@ let movieData = {
   },
 };
 
+
+
+
+// render movie data to html
 // first loop over movie data (outer loop)
 for (let movie in movieData) {
   const mImage = document.createElement("img");
@@ -46,8 +50,22 @@ for (let movie in movieData) {
   // second loop over movie data (inner loop)
   for (let movieD in movieData[movie]) {
     const para = document.createElement("p");
+    para.setAttribute('id', `${movieD}:${movie}`);
     const node = document.createTextNode(`${movieD}: ${movieD, movieData[movie][movieD]}`);
     para.appendChild(node);
     document.getElementById("outer").appendChild(para);
   }
 }
+
+// add movie rating
+
+document.getElementById("myButton").onclick = function () {
+  let ratingInput; //declare variable to store users rating input
+  let movieSelection; //declare variable to store users movie rating selection
+  ratingInput = document.getElementById("inputText").value;
+  movieSelection = document.getElementById("movieName").value;
+  document.getElementById(`rating:${movieSelection}`).innerHTML = `rating: ${ratingInput}`;
+  movieData[`${movieSelection}`].rating = ratingInput;
+  console.log(movieData[`${movieSelection}`].rating)
+};
+

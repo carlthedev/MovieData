@@ -11,3 +11,9 @@ img {
   width: 50%;
   height: auto;
 }
+
+section {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+}
