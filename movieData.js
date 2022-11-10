@@ -60,8 +60,8 @@ for (let movie in movieData) {
 // add movie rating
 
 document.getElementById("myButton").onclick = function () {
-   //declare variable to store users rating input
-   //declare variable to store users movie rating selection
+  //declare variable to store users rating input
+  //declare variable to store users movie rating selection
   let ratingInput = document.getElementById("inputText").value;
   let movieSelection = document.getElementById("movieName").value;
   document.getElementById(`rating:${movieSelection}`).innerHTML = `rating: ${ratingInput}`;
@@ -71,14 +71,17 @@ document.getElementById("myButton").onclick = function () {
 
 document.getElementById("myButton-2").onclick = function () {
 
+  // put input values into variables
   let mNameInput = document.getElementById("inputText-movieName").value;
   let plotInput = document.getElementById("inputText-plot").value;
   let castInput = document.getElementById("inputText-cast").value;
   let runtimeInput = document.getElementById("inputText-runtime").value;
   let ratingInput = document.getElementById("inputText-rating").value;
   let yearInput = document.getElementById("inputText-year").value;
+  // create img element and assign its attributes
   let imgElement = document.createElement("img");
   imgElement.setAttribute('src', "nothing.png");
+  //create h1 and p elements and assign them coresponding input data
   let h1Element = document.createElement("h1");
   h1Element.innerHTML = `${mNameInput}`;
   let plotElement = document.createElement("p");
@@ -91,9 +94,15 @@ document.getElementById("myButton-2").onclick = function () {
   ratingElement.innerHTML = `rating: ${ratingInput}`;
   let yearElement = document.createElement("p");
   yearElement.innerHTML = `year: ${yearInput}`;
-  
-  document.getElementById("outer").append(imgElement, h1Element, plotElement, castElement, runtimeElement, ratingElement, yearElement);
+  // prepend elements in same order as other movies
+  document.getElementById("outer").prepend(imgElement, h1Element, plotElement, castElement, runtimeElement, ratingElement, yearElement);
+  // update movieData object with newly added movie
+  movieData[`${mNameInput}`] = {
+    plot: `${plotInput}`,
+    cast: [`${castInput}`],
+    runtime: `${runtimeInput}`,
+    rating: `${ratingInput}`,
+    year: `${yearInput}`,
+  };
 
 };
-
-
