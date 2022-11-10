@@ -60,12 +60,40 @@ for (let movie in movieData) {
 // add movie rating
 
 document.getElementById("myButton").onclick = function () {
-  let ratingInput; //declare variable to store users rating input
-  let movieSelection; //declare variable to store users movie rating selection
-  ratingInput = document.getElementById("inputText").value;
-  movieSelection = document.getElementById("movieName").value;
+   //declare variable to store users rating input
+   //declare variable to store users movie rating selection
+  let ratingInput = document.getElementById("inputText").value;
+  let movieSelection = document.getElementById("movieName").value;
   document.getElementById(`rating:${movieSelection}`).innerHTML = `rating: ${ratingInput}`;
   movieData[`${movieSelection}`].rating = ratingInput;
   console.log(movieData[`${movieSelection}`].rating)
 };
+
+document.getElementById("myButton-2").onclick = function () {
+
+  let mNameInput = document.getElementById("inputText-movieName").value;
+  let plotInput = document.getElementById("inputText-plot").value;
+  let castInput = document.getElementById("inputText-cast").value;
+  let runtimeInput = document.getElementById("inputText-runtime").value;
+  let ratingInput = document.getElementById("inputText-rating").value;
+  let yearInput = document.getElementById("inputText-year").value;
+  let imgElement = document.createElement("img");
+  imgElement.setAttribute('src', "nothing.png");
+  let h1Element = document.createElement("h1");
+  h1Element.innerHTML = `${mNameInput}`;
+  let plotElement = document.createElement("p");
+  plotElement.innerHTML = `plot: ${plotInput}`;
+  let castElement = document.createElement("p");
+  castElement.innerHTML = `cast: ${castInput}`;
+  let runtimeElement = document.createElement("p");
+  runtimeElement.innerHTML = `runtime: ${runtimeInput}`;
+  let ratingElement = document.createElement("p");
+  ratingElement.innerHTML = `rating: ${ratingInput}`;
+  let yearElement = document.createElement("p");
+  yearElement.innerHTML = `year: ${yearInput}`;
+  
+  document.getElementById("outer").append(imgElement, h1Element, plotElement, castElement, runtimeElement, ratingElement, yearElement);
+
+};
+
 
