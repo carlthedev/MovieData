@@ -69,6 +69,8 @@ document.getElementById("myButton").onclick = function () {
   console.log(movieData[`${movieSelection}`].rating)
 };
 
+// add new movie to html page and update moviedata object
+
 document.getElementById("myButton-2").onclick = function () {
 
   // put input values into variables
@@ -80,7 +82,7 @@ document.getElementById("myButton-2").onclick = function () {
   let yearInput = document.getElementById("inputText-year").value;
   // create img element and assign its attributes
   let imgElement = document.createElement("img");
-  imgElement.setAttribute('src', "nothing.png");
+  imgElement.setAttribute('src', "pH-img-1.png");
   //create h1 and p elements and assign them coresponding input data
   let h1Element = document.createElement("h1");
   h1Element.innerHTML = `${mNameInput}`;
