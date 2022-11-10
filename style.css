@@ -20,6 +20,13 @@ img {
 
 #outer p {
   font-size: 1.5em;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#outer img {
+  border-radius: 5px;
+  border: solid rgb(150, 4, 4);
 }
 
 section {
